@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.2.3 documentation</title>
+  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.3.1 documentation</title>
   
 
   
@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.2.3
+                0.3.1
               </div>
             
           
@@ -218,8 +218,8 @@ under the <code class="docutils literal notranslate"><span class="pre">env-setup
 under the <code class="docutils literal notranslate"><span class="pre">self-check</span></code> call</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">run_tests_commands</span></code> - a list of commands to be run
 under the <code class="docutils literal notranslate"><span class="pre">run-tests</span></code> call</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">doc_build_types</span></code> - a list of types for doc construction:
-- <code class="docutils literal notranslate"><span class="pre">api</span></code> is currently the only supported option</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build_docs_commands</span></code> - a list of commands to be run
+under the <code class="docutils literal notranslate"><span class="pre">build-docs</span></code> call</p></li>
 </ul>
 <p>For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">jgt_tools</span><span class="p">]</span>
@@ -228,11 +228,43 @@ under the <code class="docutils literal notranslate"><span class="pre">run-tests
     <span class="s2">&quot;poetry run pip install other_package&quot;</span><span class="p">,</span>
     <span class="s2">&quot;./my_custom_setup_script.sh&quot;</span>
 <span class="p">]</span>
-<span class="n">doc_build_types</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">build_docs_commands</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>would run your specified commands for <code class="docutils literal notranslate"><span class="pre">env-setup</span></code>
-and skip the <code class="docutils literal notranslate"><span class="pre">api</span></code> doc builder.</p>
+and skip the default api doc builder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NOTE: All commands provided in <code class="docutils literal notranslate"><span class="pre">[tools.jgt_tools]</span></code>
+will be run from project root.
+To ensure your commands run as expected,
+provide any paths in your custom commands relative from root.</p>
+</div>
+<div class="section" id="build-docs-commands">
+<h3>build_docs_commands<a class="headerlink" href="#build-docs-commands" title="Permalink to this headline">¶</a></h3>
+<p>Specifically for <code class="docutils literal notranslate"><span class="pre">build_docs_commands</span></code>,
+there are some variables
+that can be used to aid in documentation building,
+using Python-style curly-brace formatting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BASE_DIR</span><span class="p">:</span> <span class="n">Root</span> <span class="n">library</span> <span class="n">directory</span>
+<span class="n">PACKAGE_NAME</span><span class="p">:</span> <span class="n">Folder</span> <span class="n">name</span> <span class="n">containing</span> <span class="n">package</span>
+<span class="n">DOCS_WORKING_DIRECTORY</span><span class="p">:</span> <span class="n">Temporary</span> <span class="n">directory</span> <span class="n">where</span> <span class="n">docs</span> <span class="n">are</span> <span class="n">built</span> <span class="p">(</span><span class="n">needed</span> <span class="k">for</span> <span class="n">Sphinx</span><span class="p">)</span>
+<span class="n">DOCS_OUTPUT_DIRECTORY</span><span class="p">:</span> <span class="n">Final</span> <span class="n">directory</span> <span class="n">where</span> <span class="n">docs</span> <span class="n">are</span> <span class="n">saved</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tool</span><span class="o">.</span><span class="n">jgt_tools</span><span class="p">]</span>
+<span class="n">build_docs_commands</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;poetry run sphinx-apidoc --output-dir </span><span class="si">{DOCS_WORKING_DIRECTORY}</span><span class="s2"> --no-toc --force --module-first </span><span class="si">{PACKAGE_NAME}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>builds the Sphinx API docs for the current package
+and stores the output files
+in the temporary working directory.</p>
+</div>
+<div class="section" id="check-version">
+<h3>check-version<a class="headerlink" href="#check-version" title="Permalink to this headline">¶</a></h3>
 <p>In addition,
 the function to verify which files are relevant to <code class="docutils literal notranslate"><span class="pre">check-version</span></code>
 can be customized.
@@ -260,6 +292,7 @@ and return a boolean representing if a version change should be ensured
 </div>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -272,11 +305,11 @@ and return a boolean representing if a version change should be ensured
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Brad Brown
+        &copy; Copyright 2020, Brad Brown
       
         <span class="build">
           Build
-          <a href="https://github.com/jolly-good-toolbelt/jgt_tools/tree/67c299913a44fe1e073737502c6cc4ac43c80aaa">67c299913a44fe1e073737502c6cc4ac43c80aaa</a>.
+          <a href="https://github.com/brolewis/jgt_tools/tree/a2d25aad57fbbcc34c2ce35cfdcb03a19bc48c85">a2d25aad57fbbcc34c2ce35cfdcb03a19bc48c85</a>.
         </span>
       
 
