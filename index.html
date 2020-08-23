@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.3.1 documentation</title>
+  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.0 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,11 +35,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="jgt_tools package" href="jgt_tools.html" /> 
@@ -50,7 +51,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+            <a href="#" class="icon icon-home" alt="Documentation Home"> jgt_tools - A collection of tools for commmon package scripts
           
 
           
@@ -60,7 +61,7 @@
             
             
               <div class="version">
-                0.3.1
+                0.4.0
               </div>
             
           
@@ -77,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -114,6 +116,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -152,7 +155,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
       <li>JGT Tools</li>
     
@@ -194,6 +197,21 @@ then publish to your gh-pages branch</p></li>
 without a version bump</p></li>
 </ul>
 <p>Details for each script can be found by calling with the <code class="docutils literal notranslate"><span class="pre">--help</span></code> flag.</p>
+</div>
+<div class="section" id="run-tests">
+<h2>run-tests<a class="headerlink" href="#run-tests" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">run-tests</span></code> commands will
+pass through any additional parameters
+provided on the command line.
+For example,
+by default <code class="docutils literal notranslate"><span class="pre">run-tests</span></code> maps to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">run</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">vvv</span>
+</pre></div>
+</div>
+<p>Running <code class="docutils literal notranslate"><span class="pre">run-tests</span> <span class="pre">-s</span></code> would run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">run</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pytest</span> <span class="o">-</span><span class="n">vvv</span> <span class="o">-</span><span class="n">s</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="documentation-index">
 <h2>Documentation Index<a class="headerlink" href="#documentation-index" title="Permalink to this headline">¶</a></h2>
@@ -328,7 +346,16 @@ and return a boolean representing if a version change should be ensured
 <td><p>poetry run python -m pytest -vvv</p></td>
 </tr>
 <tr class="row-odd"><td><p>build_docs_commands</p></td>
+<td><p>find . -name *.rst -maxdepth 1 -exec cp {{}} {DOCS_WORKING_DIRECTORY} ;</p></td>
+</tr>
+<tr class="row-even"><td><p>build_docs_commands</p></td>
 <td><p>poetry run sphinx-apidoc –output-dir {DOCS_WORKING_DIRECTORY} –no-toc –force –module-first {PACKAGE_NAME}</p></td>
+</tr>
+<tr class="row-odd"><td><p>build_docs_commands</p></td>
+<td><p>cp {BASE_DIR}/.jgt_tools.index {BASE_DIR}/{DOCS_WORKING_DIRECTORY}/index.rst</p></td>
+</tr>
+<tr class="row-even"><td><p>build_docs_commands</p></td>
+<td><p>poetry run sphinx-build -c {DOCS_WORKING_DIRECTORY} -aEW {DOCS_WORKING_DIRECTORY} {DOCS_OUTPUT_DIRECTORY}</p></td>
 </tr>
 </tbody>
 </table>
@@ -400,17 +427,24 @@ and return a boolean representing if a version change should be ensured
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Brad Brown
-      
-        <span class="build">
-          Build
-          <a href="https://github.com/brolewis/jgt_tools/tree/a2d25aad57fbbcc34c2ce35cfdcb03a19bc48c85">a2d25aad57fbbcc34c2ce35cfdcb03a19bc48c85</a>.
-        </span>
-      
+      <span class="build">
+        
+        Build
+        <a href="https://github.com/brolewis/jgt_tools/tree/01a98bffe1b0894525db53a9d4b215ff9a3d5a7f">01a98bffe1b0894525db53a9d4b215ff9a3d5a7f</a>.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -421,7 +455,6 @@ and return a boolean representing if a version change should be ensured
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

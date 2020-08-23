@@ -24,4 +24,3 @@ jgt\_tools.docs.sample\_conf module
    :members:
    :undoc-members:
    :show-inheritance:
-

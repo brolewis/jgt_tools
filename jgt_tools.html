@@ -1,15 +1,19 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>jgt_tools package &mdash; jgt_tools - A collection of tools for commmon package scripts 0.3.1 documentation</title>
+  <title>jgt_tools package &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.0 documentation</title>
   
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
   
@@ -17,7 +21,9 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,11 +35,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="jgt_tools.docs package" href="jgt_tools.docs.html" />
@@ -51,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> jgt_tools - A collection of tools for commmon package scripts
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> jgt_tools - A collection of tools for commmon package scripts
           
 
           
@@ -61,7 +62,7 @@
             
             
               <div class="version">
-                0.3.1
+                0.4.0
               </div>
             
           
@@ -78,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -115,6 +117,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -153,7 +156,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>jgt_tools package</li>
     
@@ -196,7 +199,7 @@
 <div class="section" id="module-jgt_tools.check_version">
 <span id="jgt-tools-check-version-module"></span><h2>jgt_tools.check_version module<a class="headerlink" href="#module-jgt_tools.check_version" title="Permalink to this headline">¶</a></h2>
 <p>Ensure version bump.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.check_version.check_version">
 <code class="sig-prename descclassname">jgt_tools.check_version.</code><code class="sig-name descname">check_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/check_version.html#check_version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.check_version.check_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Verify the version is changed if any code files are changed.</p>
@@ -212,13 +215,13 @@ poetry install
 poetry run pre-commit install</p>
 </dd>
 </dl>
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.env_setup.env_setup">
-<code class="sig-prename descclassname">jgt_tools.env_setup.</code><code class="sig-name descname">env_setup</code><span class="sig-paren">(</span><em class="sig-param">verbose</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/env_setup.html#env_setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.env_setup.env_setup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">jgt_tools.env_setup.</code><code class="sig-name descname">env_setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">verbose</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/env_setup.html#env_setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.env_setup.env_setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prepare environment for running.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.env_setup.main">
 <code class="sig-prename descclassname">jgt_tools.env_setup.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/env_setup.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.env_setup.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute env_setup using command line args.</p>
@@ -232,15 +235,15 @@ poetry run pre-commit install</p>
 <dt>Runs the following commands:</dt><dd><p>poetry run python -m pytest -vvv</p>
 </dd>
 </dl>
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.run_tests.main">
 <code class="sig-prename descclassname">jgt_tools.run_tests.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/run_tests.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.run_tests.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Self check with cli args.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.run_tests.run_tests">
-<code class="sig-prename descclassname">jgt_tools.run_tests.</code><code class="sig-name descname">run_tests</code><span class="sig-paren">(</span><em class="sig-param">do_setup=False</em>, <em class="sig-param">self_check=False</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/run_tests.html#run_tests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.run_tests.run_tests" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">jgt_tools.run_tests.</code><code class="sig-name descname">run_tests</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">do_setup</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">self_check</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">additional_args</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/run_tests.html#run_tests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.run_tests.run_tests" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run code checks.</p>
 </dd></dl>
 
@@ -257,15 +260,15 @@ to run or check things that aren’t a good fit for ‘pre-commit’.</p>
 <dt>Runs the following commands:</dt><dd><p>poetry run pre-commit run -a</p>
 </dd>
 </dl>
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.self_check.main">
 <code class="sig-prename descclassname">jgt_tools.self_check.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/self_check.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.self_check.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Self check with cli args.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.self_check.self_check">
-<code class="sig-prename descclassname">jgt_tools.self_check.</code><code class="sig-name descname">self_check</code><span class="sig-paren">(</span><em class="sig-param">do_setup=False</em>, <em class="sig-param">do_version_check=False</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/self_check.html#self_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.self_check.self_check" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">jgt_tools.self_check.</code><code class="sig-name descname">self_check</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">do_setup</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">do_version_check</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/self_check.html#self_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.self_check.self_check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run code checks.</p>
 </dd></dl>
 
@@ -273,28 +276,28 @@ to run or check things that aren’t a good fit for ‘pre-commit’.</p>
 <div class="section" id="module-jgt_tools.utils">
 <span id="jgt-tools-utils-module"></span><h2>jgt_tools.utils module<a class="headerlink" href="#module-jgt_tools.utils" title="Permalink to this headline">¶</a></h2>
 <p>Shared util functions.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.utils.execute_command_list">
-<code class="sig-prename descclassname">jgt_tools.utils.</code><code class="sig-name descname">execute_command_list</code><span class="sig-paren">(</span><em class="sig-param">commands_to_run</em>, <em class="sig-param">verbose=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/utils.html#execute_command_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.utils.execute_command_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">jgt_tools.utils.</code><code class="sig-name descname">execute_command_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">commands_to_run</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/utils.html#execute_command_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.utils.execute_command_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute each command in the list.</p>
 <p>If any command fails, print a helpful message and exit with that status.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.utils.get_pyproject_config">
 <code class="sig-prename descclassname">jgt_tools.utils.</code><code class="sig-name descname">get_pyproject_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/utils.html#get_pyproject_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.utils.get_pyproject_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the config data from the project’s pyproject.toml file.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.utils.load_configs">
 <code class="sig-prename descclassname">jgt_tools.utils.</code><code class="sig-name descname">load_configs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/utils.html#load_configs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.utils.load_configs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build configs from defaults and pyproject.toml.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="jgt_tools.utils.owner_name_from">
-<code class="sig-prename descclassname">jgt_tools.utils.</code><code class="sig-name descname">owner_name_from</code><span class="sig-paren">(</span><em class="sig-param">origin_url</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/utils.html#owner_name_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.utils.owner_name_from" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">jgt_tools.utils.</code><code class="sig-name descname">owner_name_from</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">origin_url</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jgt_tools/utils.html#owner_name_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jgt_tools.utils.owner_name_from" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the owner name from a git origin URL.</p>
 <p>The git origin URL might be in <code class="docutils literal notranslate"><span class="pre">git+ssh</span></code> form, or <code class="docutils literal notranslate"><span class="pre">https</span></code> form.</p>
 <dl class="field-list simple">
@@ -340,17 +343,24 @@ to run or check things that aren’t a good fit for ‘pre-commit’.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Brad Brown
-      
-        <span class="build">
-          Build
-          <a href="https://github.com/brolewis/jgt_tools/tree/a2d25aad57fbbcc34c2ce35cfdcb03a19bc48c85">a2d25aad57fbbcc34c2ce35cfdcb03a19bc48c85</a>.
-        </span>
-      
+      <span class="build">
+        
+        Build
+        <a href="https://github.com/brolewis/jgt_tools/tree/01a98bffe1b0894525db53a9d4b215ff9a3d5a7f">01a98bffe1b0894525db53a9d4b215ff9a3d5a7f</a>.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -361,7 +371,6 @@ to run or check things that aren’t a good fit for ‘pre-commit’.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
