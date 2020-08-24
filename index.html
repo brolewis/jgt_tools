@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.0 documentation</title>
+  <title>JGT Tools &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.0-alpha.0 documentation</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.4.0
+                0.4.0-alpha.0
               </div>
             
           
@@ -197,6 +197,16 @@ then publish to your gh-pages branch</p></li>
 without a version bump</p></li>
 </ul>
 <p>Details for each script can be found by calling with the <code class="docutils literal notranslate"><span class="pre">--help</span></code> flag.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In order to keep the environment as clean as possible,
+JGT Tools will only install the libraries needed to start the tool itself.
+However, several of the default commands
+rely on additional libraries.
+When <code class="docutils literal notranslate"><span class="pre">env-setup</span></code> is run for the first time,
+it will check to see if each set of commands is still default,
+and if so, install the libraries those commands need.</p>
+</div>
 </div>
 <div class="section" id="run-tests">
 <h2>run-tests<a class="headerlink" href="#run-tests" title="Permalink to this headline">¶</a></h2>
@@ -346,15 +356,18 @@ and return a boolean representing if a version change should be ensured
 <td><p>poetry run python -m pytest -vvv</p></td>
 </tr>
 <tr class="row-odd"><td><p>build_docs_commands</p></td>
-<td><p>find . -name *.rst -maxdepth 1 -exec cp {{}} {DOCS_WORKING_DIRECTORY} ;</p></td>
+<td><p>echo “Building {PACKAGE_NAME} docs”</p></td>
 </tr>
 <tr class="row-even"><td><p>build_docs_commands</p></td>
-<td><p>poetry run sphinx-apidoc –output-dir {DOCS_WORKING_DIRECTORY} –no-toc –force –module-first {PACKAGE_NAME}</p></td>
+<td><p>find . -maxdepth 1 -name *.rst -exec cp {{}} {DOCS_WORKING_DIRECTORY} ;</p></td>
 </tr>
 <tr class="row-odd"><td><p>build_docs_commands</p></td>
-<td><p>cp {BASE_DIR}/.jgt_tools.index {BASE_DIR}/{DOCS_WORKING_DIRECTORY}/index.rst</p></td>
+<td><p>poetry run sphinx-apidoc –output-dir {DOCS_WORKING_DIRECTORY} –no-toc –force –module-first {PACKAGE_NAME}</p></td>
 </tr>
 <tr class="row-even"><td><p>build_docs_commands</p></td>
+<td><p>cp {BASE_DIR}/.jgt_tools.index {BASE_DIR}/{DOCS_WORKING_DIRECTORY}/index.rst</p></td>
+</tr>
+<tr class="row-odd"><td><p>build_docs_commands</p></td>
 <td><p>poetry run sphinx-build -c {DOCS_WORKING_DIRECTORY} -aEW {DOCS_WORKING_DIRECTORY} {DOCS_OUTPUT_DIRECTORY}</p></td>
 </tr>
 </tbody>
@@ -432,7 +445,7 @@ and return a boolean representing if a version change should be ensured
       <span class="build">
         
         Build
-        <a href="https://github.com/brolewis/jgt_tools/tree/01a98bffe1b0894525db53a9d4b215ff9a3d5a7f">01a98bffe1b0894525db53a9d4b215ff9a3d5a7f</a>.
+        <a href="https://github.com/brolewis/jgt_tools/tree/f5d16a6b7e28700bbffff1099a4ec75f0eab3539">f5d16a6b7e28700bbffff1099a4ec75f0eab3539</a>.
       </span>
 
     </p>

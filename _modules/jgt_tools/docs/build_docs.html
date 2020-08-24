@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>jgt_tools.docs.build_docs &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.0 documentation</title>
+  <title>jgt_tools.docs.build_docs &mdash; jgt_tools - A collection of tools for commmon package scripts 0.4.0-alpha.0 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.4.0
+                0.4.0-alpha.0
               </div>
             
           
@@ -179,7 +179,7 @@
 <span class="kn">import</span> <span class="nn">email.utils</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -198,7 +198,6 @@
 
 
 <span class="k">def</span> <span class="nf">_build_docs</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Building </span><span class="si">{</span><span class="n">PACKAGE_NAME</span><span class="si">}</span><span class="s2"> API docs&quot;</span><span class="p">)</span>
     <span class="n">pyproject</span> <span class="o">=</span> <span class="n">get_pyproject_config</span><span class="p">()</span>
     <span class="n">tools</span> <span class="o">=</span> <span class="n">pyproject</span><span class="p">[</span><span class="s2">&quot;tool&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;jgt_tools&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="s2">&quot;doc_build_types&quot;</span> <span class="ow">in</span> <span class="n">tools</span><span class="p">:</span>
@@ -279,7 +278,8 @@
 
 <div class="viewcode-block" id="push"><a class="viewcode-back" href="../../../jgt_tools.docs.html#jgt_tools.docs.build_docs.push">[docs]</a><span class="k">def</span> <span class="nf">push</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Push docs to github-pages.&quot;&quot;&quot;</span>
-    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;poetry&quot;</span><span class="p">,</span> <span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="s2">&quot;ghp-import&quot;</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;docs/&quot;</span><span class="p">])</span></div>
+    <span class="k">if</span> <span class="p">(</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="n">DOCS_OUTPUT_DIRECTORY</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;poetry&quot;</span><span class="p">,</span> <span class="s2">&quot;run&quot;</span><span class="p">,</span> <span class="s2">&quot;ghp-import&quot;</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;docs/&quot;</span><span class="p">])</span></div>
 
 
 <div class="viewcode-block" id="build_and_push"><a class="viewcode-back" href="../../../jgt_tools.docs.html#jgt_tools.docs.build_docs.build_and_push">[docs]</a><span class="k">def</span> <span class="nf">build_and_push</span><span class="p">():</span>
@@ -303,7 +303,7 @@
       <span class="build">
         
         Build
-        <a href="https://github.com/brolewis/jgt_tools/tree/01a98bffe1b0894525db53a9d4b215ff9a3d5a7f">01a98bffe1b0894525db53a9d4b215ff9a3d5a7f</a>.
+        <a href="https://github.com/brolewis/jgt_tools/tree/f5d16a6b7e28700bbffff1099a4ec75f0eab3539">f5d16a6b7e28700bbffff1099a4ec75f0eab3539</a>.
       </span>
 
     </p>
